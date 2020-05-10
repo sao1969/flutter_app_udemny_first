@@ -8,7 +8,6 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -16,7 +15,7 @@ class MyApp extends StatefulWidget {
   }
 }
 
-class _MyAppState extends State <MyApp> {
+class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
   void _answerQuestion() {
@@ -43,20 +42,21 @@ class _MyAppState extends State <MyApp> {
       },
     ];
     return MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('My First App'),
-          ),
-          body: Column(
-            children: <Widget>[
-              Question(
-                questions[_questionIndex]['questionText'],
-              ),
-              Answer(_answerQuestion),
-              Answer(_answerQuestion),
-              Answer(_answerQuestion),
-            ],
-          ),)
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My First App'),
+        ),
+        body: Column(
+          children:[
+            Question(
+              questions[_questionIndex]['questionText'],
+            ),
+            (questions[_questionIndex]['questionAnswers'] as List<String>).map((answer) {
+           Answer(_answerQuestion, answer);
+            }).toList()
+          ],
+        ),
+      ),
     );
   }
 }
