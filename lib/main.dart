@@ -30,15 +30,15 @@ class _MyAppState extends State<MyApp> {
     var questions = [
       {
         'questionText': 'What\'s your favourite colour',
-        'questionAnswers': ['Black', 'Red', 'Green', 'White'],
+        'answers': ['Black', 'Red', 'Green', 'White'],
       },
       {
         'questionText': 'What\'s your favorite animal',
-        'questionAnswers': ['Dog', 'Cat', 'Rabbit', 'Horse'],
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
       },
       {
         'questionText': 'What\'s your favourite car',
-        'questionAnswers': ['BMW', 'Benz', 'Audi', 'GoGoMobile'],
+        'answers': ['BMW', 'Benz', 'Audi', 'Car'],
       },
     ];
     return MaterialApp(
