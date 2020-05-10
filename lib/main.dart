@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,7 +9,7 @@ void main() {
 
 class MyApp extends StatefulWidget {
 
-@override
+  @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return _MyAppState();
@@ -28,34 +29,34 @@ class _MyAppState extends State <MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What\'s your favourite colour',
-      'What\'s your favorite animal',
-      'What\'s your favourite car',
+      {
+        'questionText': 'What\'s your favourite colour',
+        'questionAnswers': ['Black', 'Red', 'Green', 'White'],
+      },
+      {
+        'questionText': 'What\'s your favorite animal',
+        'questionAnswers': ['Dog', 'Cat', 'Rabbit', 'Horse'],
+      },
+      {
+        'questionText': 'What\'s your favourite car',
+        'questionAnswers': ['BMW', 'Benz', 'Audi', 'GoGoMobile'],
+      },
     ];
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('My First App'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Question(
-            questions[_questionIndex],
+          appBar: AppBar(
+            title: Text('My First App'),
           ),
-          RaisedButton(
-            child: Text('Answer 1'),
-            onPressed: _answerQuestion,
-          ),
-          RaisedButton(
-            child: Text('Answer 2'),
-            onPressed: _answerQuestion,
-          ),
-          RaisedButton(
-            child: Text('Answer 3'),
-            onPressed: _answerQuestion,
-          ),
-        ],
-      ),
-    ));
+          body: Column(
+            children: <Widget>[
+              Question(
+                questions[_questionIndex]['questionText'],
+              ),
+              Answer(_answerQuestion),
+              Answer(_answerQuestion),
+              Answer(_answerQuestion),
+            ],
+          ),)
+    );
   }
 }
